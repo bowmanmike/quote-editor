@@ -2,6 +2,7 @@ databases:
   - name: quote_editor
     databaseName: quote_editor_production
     user: quote_editor
+    region: ohio
 
 services:
   - type: web
@@ -9,6 +10,7 @@ services:
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
+    region: ohio
     envVars:
       - key: DATABASE_URL
         fromDatabase:
