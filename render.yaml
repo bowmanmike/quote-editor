@@ -23,6 +23,8 @@ services:
           type: redis
           name: quote_editor_redis
           property: connectionString
+          plan: free
+          ipAllowList: []
   - type: redis
     name: quote_editor_redis
     region: ohio
