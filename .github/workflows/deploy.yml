@@ -1,9 +1,19 @@
-name: Deploy To Render
+name: "Deploy To Render"
 on:
   workflow_dispatch:
+    inputs:
+      commit:
+        description: "Commit. ex: dd9914"
+        required: true
+      branch_name:
+        description: "Branch name, ex: main"
+        required: true
+      runner_statuses:
+        description: "Status of the other runs. ex: {rspec: 'passed', simplecov: 'passed'}"
+        required: true
 jobs:
-  deploy:
+  example_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Send Render Webhook
-        run: curl ${{ secrets.RENDER_DEPLOY_WEBHOOK }}
+      - name: example_step
+        run: echo "${{ github.event.inputs.commit }} was triggered!"
