@@ -11,7 +11,7 @@ services:
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     region: ohio
-    autodeploy: false
+    autoDeploy: false
     envVars:
       - key: DATABASE_URL
         fromDatabase:
