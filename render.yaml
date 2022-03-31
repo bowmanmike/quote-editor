@@ -24,6 +24,19 @@ services:
           type: redis
           name: quote_editor_redis
           property: connectionString
+  - type: worker
+    name: quote_editor_sidekiq_worker
+    region: ohio
+    env: ruby
+    buildCommand: bundle install
+    startCommand: bundle exec sidekiq
+    envVars:
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: quote_editor_redis
+          property: connectionString
+
   - type: redis
     name: quote_editor_redis
     region: ohio
