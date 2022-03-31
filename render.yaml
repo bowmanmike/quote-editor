@@ -13,7 +13,6 @@ services:
     startCommand: "bundle exec puma -C config/puma.rb"
     region: ohio
     autoDeploy: false
-    plan: free
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -33,7 +32,6 @@ services:
     buildCommand: bundle install
     startCommand: bundle exec sidekiq
     autoDeploy: false
-    plan: free
     envVars:
       - key: REDIS_URL
         fromService:
@@ -45,5 +43,4 @@ services:
     name: quote_editor_redis
     region: ohio
     ipAllowList: []
-    plan: free
     maxmemoryPolicy: noeviction
