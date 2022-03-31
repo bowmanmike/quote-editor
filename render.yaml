@@ -3,6 +3,7 @@ databases:
     databaseName: quote_editor_production
     user: quote_editor
     region: ohio
+    plan: free
 
 services:
   - type: web
@@ -12,6 +13,7 @@ services:
     startCommand: "bundle exec puma -C config/puma.rb"
     region: ohio
     autoDeploy: false
+    plan: free
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -31,7 +33,7 @@ services:
     buildCommand: bundle install
     startCommand: bundle exec sidekiq
     autoDeploy: false
-    maxmemoryPolicy: noeviction
+    plan: free
     envVars:
       - key: REDIS_URL
         fromService:
@@ -44,3 +46,4 @@ services:
     region: ohio
     ipAllowList: []
     plan: free
+    maxmemorypolicy: noeviction
