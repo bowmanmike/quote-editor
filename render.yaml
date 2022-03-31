@@ -3,7 +3,7 @@ databases:
     databaseName: quote_editor_production
     user: quote_editor
     region: ohio
-    plan: free
+    plan: starter
 
 services:
   - type: web
