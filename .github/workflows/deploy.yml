@@ -15,6 +15,7 @@ jobs:
   example_job:
     runs-on: ubuntu-latest
     steps:
-      - name: deploy
+      - name: deploy rails
         run: curl "${{ secrets.RENDER_DEPLOY_WEBHOOK }}"
-        # run: echo "${{ github.event.inputs.commit }} was triggered!"
+      - name: deploy sidekiq
+        run: curl "${{ secrets.RENDER_SIDEKIQ_DEPLOY_WEBHOOK }}"

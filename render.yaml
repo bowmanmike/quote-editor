@@ -30,6 +30,7 @@ services:
     env: ruby
     buildCommand: bundle install
     startCommand: bundle exec sidekiq
+    autoDeploy: false
     envVars:
       - key: REDIS_URL
         fromService:
