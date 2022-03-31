@@ -46,4 +46,4 @@ services:
     region: ohio
     ipAllowList: []
     plan: free
-    maxmemorypolicy: noeviction
+    maxmemoryPolicy: noeviction
